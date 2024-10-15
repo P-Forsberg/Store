@@ -1,9 +1,12 @@
-public class Menu(){
+package org.example;
 
-	private String message;
-	private String eMessage; 
+public class Menu {
 
-	public Menu(String message, String eMessage){
-		this.message = messageM;
-		this.eMessage = eMessage; 
+	private List<Command> commands; 
+
+	public Menu() {
+		this.commands = new ArrayList<>();
+	}
+
+	
 }
