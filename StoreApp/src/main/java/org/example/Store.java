@@ -28,4 +28,25 @@ public class Store {
         addItem(milk);
         addItem(orange);
     }
+
+    public void addEmployees(Employee employee) {
+        employees.add(employee);
+    }
+    public void createEmployees() {
+        Employee anton = new Employee("Anton", 0);
+        Employee pontus = new Employee("Pontus", 1);
+        Employee josef = new Employee("Josef", 2);
+        Employee olga = new Employee("Olga", 3);
+        Employee cecilia = new Employee("Cecilia", 4);
+
+        addEmployees(anton);
+        addEmployees(pontus);
+        addEmployees(josef);
+        addEmployees(olga);
+        addEmployees(cecilia);
+    }
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
 }
