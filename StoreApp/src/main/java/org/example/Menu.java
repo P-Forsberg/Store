@@ -1,7 +1,7 @@
-Public class Menu(){
+public class Menu(){
 
-	Private String message;
-	Private String eMessage; 
+	private String message;
+	private String eMessage; 
 
 	public Menu(String message, String eMessage){
 		this.message = messageM;
