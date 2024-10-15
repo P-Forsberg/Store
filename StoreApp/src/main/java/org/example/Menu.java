@@ -1,12 +1,13 @@
 package org.example;
 
-public class Menu {
+import java.util.ArrayList;
+import java.util.List;
 
-	private List<Command> commands; 
+public class Menu {
+	private List<Command> commands;
 
 	public Menu() {
 		this.commands = new ArrayList<>();
 	}
 
-	
 }

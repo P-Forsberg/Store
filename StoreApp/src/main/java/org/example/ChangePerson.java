@@ -1,14 +1,9 @@
+package org.example;
+
 public class ChangePerson extends Command {
 
-	public ChangePerson(){
-	
+	public ChangePerson() {
 		super();
 	}
-
-	@Override
-	public void execute(string[] commandArgs){
-
-	}
-
 
 }
