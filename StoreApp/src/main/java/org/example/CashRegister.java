@@ -7,4 +7,9 @@ public class CashRegister {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'add'");
     }
+
+    public void setCashier(Cashier cashier2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setCashier'");
+    }
 }

@@ -1,16 +1,19 @@
 package org.example;
-public class Item {
-    public String name; 
-    public double price; 
 
-    public Item(String name, double price){
+public class Item {
+    public String name;
+    public double price;
+
+    public Item(String name, double price) {
         this.name = name;
         this.price = price;
     }
-    public double getDouble(){
+
+    public double getPrice() {
         return price;
     }
-    public String getName(){
+
+    public String getName() {
         return name;
     }
 }

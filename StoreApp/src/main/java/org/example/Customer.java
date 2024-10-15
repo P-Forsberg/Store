@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Customer extends Person {
     private ArrayList<Item> shoppingCart;
@@ -10,29 +11,66 @@ public class Customer extends Person {
         shoppingCart = new ArrayList<>();
     }
 
-    public void addToChart(String itemName, Store store) {
-        Item itemToAdd = store.getItemByName(itemName);
-        if (itemToAdd != null) {
-            shoppingCart.add(itemToAdd);
-            System.out.println(itemToAdd.getName() + " added to cart");
-        } else {
-            System.out.println(itemName + " is not avaiable");
-        }
+    public void addToChart(Item item) {
+        shoppingCart.add(item);
+        System.out.println(name + " added " + item.getName() + " to the chart");
+
+    }
+
+    public void enterStore(Store store) {
+        System.out.println("Welcome to the " + store.getName() + " !");
     }
 
     public void checkout() {
+        double total = 0;
         if (shoppingCart.isEmpty()) {
             System.out.println("shopping cart is empty ");
-        } else {
-            System.out.println("checking out with items " + shoppingCart);
-            shoppingCart.clear();
         }
-    }
-
-    public void showCart() {
         for (Item item : shoppingCart) {
-            System.out.println(item.getName() + " - " + item.getDouble());
+            total += item.getPrice();
         }
+        System.out.println(name + " has checked out. Total amount: " + total);
+        shoppingCart.clear();
     }
 
+    public List<Command> getAvailableCommands(Store store) {
+        final List<Command> commands = new ArrayList<>();
+        commands.add(new Command() {
+
+            @Override
+            public void execute() {
+                enterStore(store);
+            }
+
+            @Override
+            public String getDescription() {
+                return "Enter the Store";
+            }
+        });
+        for (Item item : store.getInventory()) {
+            commands.add(new Command() {
+                @Override
+                public void execute() {
+                    addToChart(item);
+                }
+
+                @Override
+                public String getDescription() {
+                    return "add " + item.getName() + " to cart";
+                }
+            });
+        }
+        commands.add(new Command() {
+            @Override
+            public void execute() {
+                checkout();
+            }
+
+            @Override
+            public String getDescription() {
+                return "checkout";
+            }
+        });
+        return commands;
+    }
 }

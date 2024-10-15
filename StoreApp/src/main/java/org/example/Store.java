@@ -8,17 +8,28 @@ import java.util.List;
 public class Store {
     public List<CashRegister> cashRegisters;
     public List<Employee> employees;
-    public List<Item> items;
+    public ArrayList<Item> items;
+    private String name;
 
-    public Store(List cashRegisters, List employees) {
+    public Store(List cashRegisters, List employees, String name) {
+        this.name = name;
         this.cashRegisters = new ArrayList<>();
         this.employees = new ArrayList<>();
         this.items = new ArrayList<>();
         createItems();
+
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void addItem(Item item) {
         items.add(item);
+    }
+
+    public ArrayList<Item> getInventory() {
+        return items;
     }
 
     public Item getItemByName(String name) {

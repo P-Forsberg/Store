@@ -1,10 +1,7 @@
 package org.example;
 
-public class Command {
+public interface Command {
+    void execute();
 
-    @Override
-    public String toString() {
-        return "Command []";
-    }
-
+    String getDescription();
 }
