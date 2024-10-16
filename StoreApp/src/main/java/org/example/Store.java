@@ -11,6 +11,7 @@ public class Store {
     public Store(List cashRegisters, List employees){
         this.cashRegisters = new ArrayList<>();
         this.employees = new ArrayList<>();
+        createEmployees();
         this.items = new ArrayList<>();
         createItems();
     }
