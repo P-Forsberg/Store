@@ -9,7 +9,7 @@ public class Administrator extends Manager {
     }
 
     public void hireEmployee(String employeeName) {
-        System.out.println(name + " hired a new emplyee: " + employeeName);
+        System.out.println(name + " hired a new employee: " + employeeName);
     }
 
     public void assignCashier(Cashier cashier, CashRegister register) {
@@ -38,6 +38,12 @@ public class Administrator extends Manager {
             public void execute() {
 
             }
+
+            @Override
+            public String getDescription() {
+                return "something";
+            }
         });
+        return commands;
     }
 }

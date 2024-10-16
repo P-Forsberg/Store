@@ -1,5 +1,6 @@
 package org.example;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,17 +12,21 @@ public class Customer extends Person {
         shoppingCart = new ArrayList<>();
     }
 
-    public void addToChart(Item item) {
+    public void addToCart(Item item) {
         shoppingCart.add(item);
-        System.out.println(name + " added " + item.getName() + " to the chart");
+        System.out.println(name + " added " + item.getName() + " to the cart");
 
+    }
+
+    public ArrayList<Item> getShoppingCart() {
+        return shoppingCart;
     }
 
     public void enterStore(Store store) {
         System.out.println("Welcome to the " + store.getName() + " !");
     }
 
-    public void checkout() {
+    public double checkout() {
         double total = 0;
         if (shoppingCart.isEmpty()) {
             System.out.println("shopping cart is empty ");
@@ -31,6 +36,7 @@ public class Customer extends Person {
         }
         System.out.println(name + " has checked out. Total amount: " + total);
         shoppingCart.clear();
+        return total;
     }
 
     public List<Command> getAvailableCommands(Store store) {
@@ -51,7 +57,7 @@ public class Customer extends Person {
             commands.add(new Command() {
                 @Override
                 public void execute() {
-                    addToChart(item);
+                    addToCart(item);
                 }
 
                 @Override
