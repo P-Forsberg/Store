@@ -6,4 +6,7 @@ public class Manager extends Employee {
         super(name, id);
     }
 
+    public void assignCashier() {
+        System.out.println("this is from manager");
+    }
 }

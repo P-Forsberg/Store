@@ -1,19 +1,19 @@
 package org.example.person;
 
 import java.util.ArrayList;
+import org.example.util.Command;
 
-public class Person {
+public abstract class Person {
 
-    public String name;
-    private ArrayList<Command> commands;
+    private String name;
+    public ArrayList<Command> commands;
 
     public Person(String name) {
         this.name = name;
+        commands = new ArrayList<>();
     }
 
-    public ArrayList<Command> getCommands() {
-        return commands;
-    }
+    public abstract ArrayList<Command> getCommands();
 
     public String getName() {
         return name;

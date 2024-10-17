@@ -3,30 +3,30 @@
  */
 package org.example;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import org.example.person.Administrator;
 import org.example.person.Cashier;
 import org.example.person.Customer;
 import org.example.person.Manager;
 import org.example.person.Person;
+import org.example.util.Menu;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
-        List<Person> people = initializePeople();
-        for (Person p : people) {
-            System.out.println(p);
-        }
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Person> people = initializePeople();
+        Menu menu = new Menu(scanner, people);
+        menu.showMenu();
+
     }
 
-    private static List<Person> initializePeople() {
-        List<Person> people = new ArrayList<>();
+    private static ArrayList<Person> initializePeople() {
+        ArrayList<Person> people = new ArrayList<>();
         people.add(new Customer("Alice"));
         people.add(new Customer("Bob"));
         people.add(new Cashier("Charlie", 1));
