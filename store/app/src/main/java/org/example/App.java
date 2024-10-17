@@ -3,9 +3,7 @@
  */
 package org.example;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import org.example.person.Administrator;
@@ -16,13 +14,14 @@ import org.example.person.Person;
 import org.example.util.Menu;
 
 public class App {
+    public Scanner scanner;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<Person> people = initializePeople();
-        Menu menu = new Menu(scanner, people);
-        menu.showMenu();
-
+        Menu menu = new Menu(people, scanner);
+        menu.showMenu(scanner);
+        System.out.println("does i get this ? ");
     }
 
     private static ArrayList<Person> initializePeople() {

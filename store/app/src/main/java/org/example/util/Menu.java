@@ -3,8 +3,6 @@ package org.example.util;
 import java.util.List;
 import java.util.Scanner;
 
-import javax.sound.midi.SoundbankResource;
-
 import org.example.person.Person;
 import org.example.store.Store;
 
@@ -12,14 +10,14 @@ public class Menu {
     private Store store;
     private Scanner scanner;
     private List<Person> people;
-    // private Commandable Person;
 
-    public Menu(Scanner scanner, List<Person> people) {
+    public Menu(List<Person> people, Scanner scanner) {
         this.scanner = scanner;
         this.people = people;
     }
 
-    public void showMenu() {
+    public void showMenu(Scanner scanner) {
+        System.out.println("------ Select a person-------");
         while (true) {
             for (int i = 0; i < people.size(); ++i) {
                 System.out.println((i + 1) + " : " + people.get(i).getName());
@@ -32,6 +30,7 @@ public class Menu {
                 handlePerson(people.get(choice - 1));
             } else {
                 System.out.println("invalid choice try again");
+                scanner.close();
             }
         }
     }
@@ -39,9 +38,9 @@ public class Menu {
     private int getChoice() {
         while (true) {
             try {
-                int choice = Integer.parseInt(scanner.nextLine());
+                int choice = scanner.nextInt();
                 return choice;
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 System.out.println(e);
             }
         }
@@ -58,6 +57,10 @@ public class Menu {
             int choice = getChoice();
             if (choice == 0) {
                 break;
+            } else if (choice > 0 && choice <= person.getCommands().size()) {
+                person.getCommands().get(choice - 1).execute();
+            } else {
+                System.out.println("Invalid choice");
             }
         }
     }
