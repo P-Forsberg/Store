@@ -3,6 +3,8 @@ package org.example.person;
 import org.example.util.Command;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 import org.example.store.Item;
 
 public class Customer extends Person {
@@ -44,8 +46,14 @@ public class Customer extends Person {
         return commands;
     }
 
-    public void addToCart() {
-        System.out.println("Item added to cart.");
+    public void addToCart(Scanner scanner) {
+       while(true) {
+            String input = scanner.nextLine();
+            if (){
+                break;
+            }
+            cart.add(input);
+        }
     }
 
     public void checkout() {

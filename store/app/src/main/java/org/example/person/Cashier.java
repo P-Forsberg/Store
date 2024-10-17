@@ -1,8 +1,8 @@
 package org.example.person;
 
 public class Cashier extends Employee {
-    public Cashier(String name, int id) {
-        super(name, id);
+    public Cashier(String name) {
+        super(name);
     }
 
     public void checkout() {

@@ -11,12 +11,12 @@ public class Menu {
     private Scanner scanner;
     private List<Person> people;
 
-    public Menu(List<Person> people, Scanner scanner) {
-        this.scanner = scanner;
+    public Menu(List<Person> people) {
+        this.scanner = new Scanner(System.in);
         this.people = people;
     }
 
-    public void showMenu(Scanner scanner) {
+    public void showMenu() {
         System.out.println("------ Select a person-------");
         while (true) {
             for (int i = 0; i < people.size(); ++i) {

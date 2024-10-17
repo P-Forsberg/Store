@@ -2,8 +2,8 @@
 package org.example.person;
 
 public class Manager extends Employee {
-    public Manager(String name, int id) {
-        super(name, id);
+    public Manager(String name) {
+        super(name);
     }
 
     public void assignCashier() {
