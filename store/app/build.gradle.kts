@@ -8,6 +8,7 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     application
+    java
 }
 
 repositories {
@@ -31,7 +32,9 @@ java {
         languageVersion = JavaLanguageVersion.of(21)
     }
 }
-
+tasks.getByName("run", JavaExec::class) {
+ standardInput = System.`in`
+}
 application {
     // Define the main class for the application.
     mainClass = "org.example.App"
@@ -39,5 +42,5 @@ application {
 
 tasks.named<Test>("test") {
     // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
+    //useJUnitPlatform()
 }

@@ -4,34 +4,34 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.List;
-
+import java.util.Scanner;
+import org.example.store.*;
 import org.example.person.Administrator;
 import org.example.person.Cashier;
 import org.example.person.Customer;
+import org.example.person.Employee;
 import org.example.person.Manager;
 import org.example.person.Person;
+import org.example.util.Menu;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
-        List<Person> people = initializePeople();
-        for (Person p : people) {
-            System.out.println(p);
-        }
+        ArrayList<Person> people = initializePeople();
+        Menu menu = new Menu(people);
+        Store store = new Store(people);
+        store.listEmplyees();
+        menu.showMenu();
     }
 
-    private static List<Person> initializePeople() {
-        List<Person> people = new ArrayList<>();
+    private static ArrayList<Person> initializePeople() {
+        ArrayList<Person> people = new ArrayList<>();
         people.add(new Customer("Alice"));
         people.add(new Customer("Bob"));
-        people.add(new Cashier("Charlie", 1));
-        people.add(new Manager("David", 2));
-        people.add(new Administrator("Eve", 3));
+        people.add(new Cashier("Charlie"));
+        people.add(new Manager("David"));
+        people.add(new Administrator("Eve"));
+        people.add(new Employee("Tyson"));
         return people;
     }
 }
